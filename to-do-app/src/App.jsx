@@ -1,5 +1,4 @@
-import './App.css'
-import ToDoList from "/pages/ToDoList.jsx"
+import ToDoList from "./pages/ToDoList.jsx"
 
 export default function App() {
   return (
