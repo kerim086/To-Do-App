@@ -43,10 +43,11 @@
 body{
   display: flex;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
   min-height: 100vh;
   font-family: Arial,sans-serif;
-  background-color: var(--backgroundColor);
+  background: #EEAECA;
+  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 .main{
@@ -62,6 +63,13 @@ body{
   justify-items: center;
   gap: 1rem;
   flex-direction: column;
+}
+
+.oben{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: red;
 }
 
 .input{
@@ -120,4 +128,9 @@ ol{
   display:flex;
   flex-direction: column;
   gap:0.5rem;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: red;
 }

@@ -41,16 +41,18 @@ export default function ToDoList(){
         <div className="main">
             <div className={"to-do-list"}>
                 <h1>To-Do-List</h1>
-                <input className="input" placeholder="Enter a Task" value={input} onChange={handleInputChange}/>
-                <button className={"add-btn"} onClick={addTask}>Add</button>
+                <div className="oben">
+                    <input className="input" placeholder="Enter a Task" value={input} onChange={handleInputChange}/>
+                    <button className={"add-btn"} onClick={addTask}>Add</button>
+                </div>
                 <ol>
                     {tasks.map((task, index) => (
                         <li key={index}>
                             <span className={"text"}>{task}</span>
                             <div className={"wrap-btn"}>
-                                <button className={"delete-btn"} onClick={() => deleteTask(index)}>X</button>
-                                <button className={"moveUp-btn"} onClick={() => moveTaskUp(index)}>Up</button>
-                                <button className={"moveDown-btn"} onClick={() => moveTaskDown(index)}>Down</button>
+                                <button className={"delete-btn"} onClick={() => deleteTask(index)}><img src="../../public/delete.svg" alt="Close"/></button>
+                                <button className={"moveUp-btn"} onClick={() => moveTaskUp(index)}><img src="../../public/up.png" alt="Up"/></button>
+                                <button className={"moveDown-btn"} onClick={() => moveTaskDown(index)}><img src="../../public/down.png" alt="Down"/></button>
                             </div>
                         </li>
                     ))}
