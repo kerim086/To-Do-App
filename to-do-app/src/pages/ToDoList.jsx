@@ -47,7 +47,7 @@ export default function ToDoList(){
                 </div>
                 <ol>
                     {tasks.map((task, index) => (
-                        <li key={index}>
+                        <li key={index} className="element">
                             <span className={"text"}>{task}</span>
                             <div className={"wrap-btn"}>
                                 <button className={"delete-btn"} onClick={() => deleteTask(index)}><img src="../../public/delete.svg" alt="Close"/></button>
