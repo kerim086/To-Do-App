@@ -48,6 +48,7 @@ body{
   font-family: Arial,sans-serif;
   background: #EEAECA;
   background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  min-width: 320px;
 }
 
 .main{
@@ -78,6 +79,8 @@ body{
   background-color: var(--inputColor);
   height: 2rem;
   width: 20vw;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .add-btn{
@@ -134,3 +137,5 @@ button:hover{
   cursor: pointer;
   background-color: red;
 }
+
+
