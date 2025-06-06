@@ -1,9 +1,9 @@
-import ToDoList from "./pages/ToDoList.jsx"
+import ToDos from "./pages/ToDos.jsx"
 
 export default function App() {
   return (
     <>
-      <ToDoList/>
+      <ToDos/>
     </>
   )
 }

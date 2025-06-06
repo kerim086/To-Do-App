@@ -1,8 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
-export default function ToDoList(){
-    const [tasks, setTasks] = useState(["a", "b", "c"]);
+export default function ToDos(){
+    const [tasks, setTasks] = useState(()=> {
+        const savedTasks = localStorage.getItem("tasks");
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
     const [input, setInput] = useState("");
+
+    useEffect(()=>{
+       localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     function handleInputChange(event){
         setInput(event.target.value);
@@ -36,6 +43,10 @@ export default function ToDoList(){
         }
     }
 
+    function clearAll(){
+        setTasks([]);
+    }
+
 
     return(
         <div className="main">
@@ -44,6 +55,7 @@ export default function ToDoList(){
                 <div className="oben">
                     <input className="input" placeholder="Enter a Task" value={input} onChange={handleInputChange}/>
                     <button className={"add-btn"} onClick={addTask}>Add</button>
+                    <button className={"add-btn"} onClick={clearAll}>Clear All</button>
                 </div>
                 <ol>
                     {tasks.map((task, index) => (
