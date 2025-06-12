@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 export default function ToDos(){
     const [tasks, setTasks] = useState(()=> {
@@ -6,6 +6,7 @@ export default function ToDos(){
         return savedTasks ? JSON.parse(savedTasks) : [];
     });
     const [input, setInput] = useState("");
+    const inputRef = useRef(null);
 
     useEffect(()=>{
        localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -20,6 +21,7 @@ export default function ToDos(){
             setTasks(t => [...t, input]);
             setInput("");
         }
+        inputRef.current?.focus();
     }
 
     function deleteTask(index){
@@ -53,7 +55,7 @@ export default function ToDos(){
             <div className={"to-do-list"}>
                 <h1>To-Do-List</h1>
                 <div className="oben">
-                    <input className="input" placeholder="Enter a Task" value={input} onChange={handleInputChange}/>
+                    <input ref={inputRef} className="input" placeholder="Enter a Task" value={input} onChange={handleInputChange} onKeyDown={(e) => {if(e.key === 'Enter'){addTask();}}}/>
                     <button className={"add-btn"} onClick={addTask}>Add</button>
                     <button className={"add-btn"} onClick={clearAll}>Clear All</button>
                 </div>
